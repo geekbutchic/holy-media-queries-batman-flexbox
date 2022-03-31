@@ -1,51 +1,195 @@
-* {
-  box-sizing: border-box;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
+/* CSS RESET CODE ABOVE */
+
 #app {
-  font-size: 5em;
+  font-size: 4em;
   text-align: center;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: 20% 60% 20%;
+  grid-template-areas:
+    "hdr hdr hdr"
+    "nav art ads"
+    "ftr ftr ftr";
 }
 
 #header {
   background-color: #f3ca40;
-  height: 20vh;
-  width: 100vw;
-}
-
-#middle {
-  display: flex;
-  justify-content: space-around;
-  align-items: stretch;
-  height: 60vh;
-  width: 100vw;
-}
-
-#main {
-  display: flex;
-  width: 80%;
+  grid-area: hdr;
 }
 
 #nav {
-  width: 20%;
+  grid-area: nav;
   background-color: #4b4e6d;
 }
 
 #articles {
-  width: 60vw;
+  grid-area: art;
   background-color: #6a8d92;
 }
 
 #ads {
-  width: 20vw;
+  grid-area: ads;
   background-color: #f2a541;
 }
 
 #footer {
-  height: 20vh;
-  width: 100vw;
+  grid-area: ftr;
   background-color: #f08a4b;
+}
+
+/* CONVERTED TO GRID - I FEEL LIKE THIS WOULD BE THE TIME TO USE GRID JUST SEEMS MORE CLEAR TO ME  */
+
+/* TABLET VIEW */
+@media (min-width: 700px) and (max-width: 1099px) {
+  #app {
+    font-size: 3em;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 20% 10% 50% 20%;
+    grid-template-areas:
+      "hdr hdr"
+      "nav nav"
+      "art ads"
+      "ftr ftr";
+  }
+}
+
+/* PHONE VIEW */
+@media screen and (max-width: 699px) {
+  #app {
+    font-size: 2.5em;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% 10% 40% 15% 15%;
+    grid-template-areas:
+      "hdr"
+      "nav"
+      "art"
+      "ads"
+      "ftr";
+  }
 }
